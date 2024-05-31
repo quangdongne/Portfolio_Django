@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--==================== UNICONS ====================-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+    <script src="https://kit.fontawesome.com/0fa6b9267c.js" crossorigin="anonymous"></script>
+   
+    <!--==================== SWIPER CSS ====================-->
+   
+
+    <!--==================== CSS ====================-->
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extend_header%}{% endblock  %}
+
+    <title>{% block title %}{% endblock  %}</title>
+    <meta name="author" content="Quang Dong">
+    <link rel="canonical" href="{{request.path}}" />
+    <link rel="home" href="{% url 'main:home' %}" />
+    <meta name="description" content="{% block description %}{% endblock  %}">
+    <meta name="keywords" content="{% block keywords %}{% endblock  %}">
+</head>
+
+<body>
+    {% include 'main/partials/nav.html' %}
+    {% include 'main/partials/messages.html' %}
+
+    <!--==================== MAIN ====================-->
+    <main class="main">
+        {% block content %}{% endblock  %}
+    </main>
+    {% include 'main/partials/footer.html' %}
+
+
+    <!--==================== SWIPER JS ====================-->
+   
+
+    <!--==================== MAIN JS ====================-->
+ 
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+   
+    {% block extend_footer %}{% endblock  %}
+</body>
+
+</html>

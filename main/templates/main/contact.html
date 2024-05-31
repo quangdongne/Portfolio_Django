@@ -1,0 +1,77 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!--SEO-->
+{% block title %}Contact me{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+<!--CSS-->
+{% block extend_header %}{% endblock %}
+<!--JS-->
+{% block extend_footer %}{% endblock  %}
+
+
+{% block content %}
+        <!--==================== CONTACT ME ====================-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact me</h2>
+            <span class="section__subtitle">Hãy liên hệ ngay cho tui</span>
+
+            <div class="contact__container container grid">
+                <div>
+                    <div class="contact__information">
+                        <i class="uil uil-phone contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Call me</h3>
+                            <span class="contact__subtitle">{{me.userprofile.phone}}</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <span class="contact__subtitle">{{me.userprofile.email}}</span>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <i class="uil uil-map-marker contact__icon"></i>
+
+                        <div>
+                            <h3 class="contact__title">Location</h3>
+                            <span class="contact__subtitle">{{me.userprofile.location|title}}</span>
+                        </div>
+                    </div>
+                </div>
+                <form  class="contact__form grid" method ="POST" action="/contact/">
+                    {% csrf_token %}
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <label for="name" class="contact__label">Name</label>
+                            {{form.name}}
+                        </div>
+                        <div class="contact__content">
+                            <label for="email" class="contact__label">Email</label>
+                            {{form.email}}
+                        </div>
+                    </div>
+                    <div class="contact__content">
+                        <label for=""project class="contact__label">Project</label>
+                        {{form.project}}
+                    </div>
+                    <div class="contact__content">
+                        <label for="message" class="contact__label">Message</label>
+                        {{form.message}}
+                    </div>
+
+                    <div>
+                        <input class="button button--flex button__icon" type = "submit" value="Gửi nè">
+                       
+                    </div>
+                </form>
+            </div>
+        </section>
+{% endblock %}

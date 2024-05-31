@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!--SEO-->
+{% block title %}Services{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+<!--CSS-->
+{% block extend_header %}{% endblock %}
+<!--JS-->
+ {% block extend_footer %}{% endblock  %}
+
+
+{% block content %}
+<!--==================== SERVICES ====================-->
+        <section class="services section" id="services">
+            <h2 class="section__title">Services</h2>
+            <span class="section__subtitle">What i offer</span>
+
+            <div class="services__container container grid">
+                <!--==================== SERVICES 1====================-->
+                {% for service in services %}
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-web-grid services__icon"></i>
+                        <h3 class="services__title">{{service.title|title}}<br>{{service.title2|title}}</h3>
+                    </div>
+
+                    <span class="button button--flex button--small button--link services__button">
+                        View more
+                        <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">{{service.title|title}}<br>{{service.title2|title}}</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+                            <ul class="services__modal-services grid">
+                                {% for service_detail in service.service_details.all %}
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>{{service_detail.title}}</p>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 {% endfor %}
+            </div>
+
+        </section>
+        <!--==================== PROJECT IN MIND ====================-->
+        <section class="project section">
+            <div class="project__bg">
+                <div class="project__container container grid">
+                    <div class="project__data">
+                        <h2 class="project__title">You have new project</h2>
+                        <p class="project__description">Liên lạc cho tôi và bạn sẽ nhận được thuê bao quý khách</p>
+                        <a href="#" class="button button--flex button--white">
+                            Contact me
+                            <i class="uil uil-message project__icon button__icon"></i>
+                        </a>
+                    </div>
+                    <img src="assets/images/project.png" alt="" class="project__img">
+                </div>
+            </div>
+
+        </section>
+    {% endblock %}

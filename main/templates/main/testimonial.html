@@ -1,0 +1,64 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!--SEO-->
+{% block title %}Testimonial{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+<!--CSS-->
+{% block extend_header %}{% endblock %}
+<!--JS-->
+ {% block extend_footer %}{% endblock  %}
+
+
+{% block content %}
+        <!--==================== TESTIMONIAL ====================-->
+        <section class="testimonial section">
+            <h2 class="section__title">Testimonial</h2>
+            <span class="section__subtitle">My client saying</span>
+
+            <div class="testimonial__container container swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!--==================== TESTIMONIAL 1====================-->
+                     {% for obj in object_list %}
+                    <div class="testimonial__content swiper-slide">
+                       
+                        <div class="testimonial__data">
+                            <div class="testimonial__header">
+                                <img src="{{obj.thumbnail.url}}" alt="" class="testimonial__img">
+
+                                <div>
+                                    <h3 class="testimonial__name">{{obj.name|title}}</h3>
+                                    <span class="testimonial__client">{{obj.role}}</span>
+                                </div>
+                            </div>
+                            <div>
+                                
+                                <div class="testimonial__icon-star">{{obj.rate}}/10</div>
+                            </div>
+                        </div>
+                        <p class="testimonial__description">{{obj.quote}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination swiper-pagination-testimonial"></div>
+            </div>
+        </section>
+        <!--==================== PROJECT IN MIND ====================-->
+        <section class="project section">
+            <div class="project__bg">
+                <div class="project__container container grid">
+                    <div class="project__data">
+                        <h2 class="project__title">You have new project</h2>
+                        <p class="project__description">Liên lạc cho tôi và bạn sẽ nhận được thuê bao quý khách</p>
+                        <a href="#" class="button button--flex button--white">
+                            Contact me
+                            <i class="uil uil-message project__icon button__icon"></i>
+                        </a>
+                    </div>
+                    <img src="{% static 'images/project.png' %}" alt="" class="project__img">
+                </div>
+            </div>
+
+        </section>
+    {% endblock %}

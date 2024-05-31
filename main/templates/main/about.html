@@ -1,0 +1,72 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+<!--SEO-->
+{% block title %}About{% endblock  %}
+{% block description %}{% endblock  %}
+{% block keywords %}{% endblock  %}
+<!--CSS-->
+{% block extend_header %}{% endblock %}
+<!--JS-->
+ {% block extend_footer %}{% endblock  %}
+
+
+{% block content %}
+<!--==================== ABOUT ====================-->
+        <section class="about section" id="about">
+            <h2 class="section__title">About me</h2>
+            <span class="section__subtitle">My introduction</span>
+            <div class="about__container container grid">
+                <img src="{{me.userprofile.about_image.url}}" alt="" class="about__img">
+                <div class="about__data">
+                    <p class="about__description">
+                        {{me.userprofile.about_bio}}
+                    </p>
+                    <div class="about__info">
+                        <div>
+                            <span class="about__info-title">{{me.userprofile.experience}}+</span>
+                            <span class="about__info-name">
+                                Years <br> experience
+                            </span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">{{me.userprofile.projects}}+</span>
+                            <span class="about__info-name">
+                                Completed <br> projects
+                            </span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">{{me.userprofile.companies}}+</span>
+                            <span class="about__info-name">
+                                Companies <br> worked
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="about__buttons">
+                        <a download="" href="{{me.userprofile.cv.url}}" class="button button--flex">
+                            Tải về CV<i class="uil uil-file-download button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+  <!--==================== PROJECT IN MIND ====================-->
+        <section class="project section">
+            <div class="project__bg">
+                <div class="project__container container grid">
+                    <div class="project__data">
+                        <h2 class="project__title">You have new project</h2>
+                        <p class="project__description">Liên lạc cho tôi và bạn sẽ nhận được thuê bao quý khách</p>
+                        <a href="{% url 'main:contact' %}" class="button button--flex button--white">
+                            Contact me
+                            <i class="uil uil-message project__icon button__icon"></i>
+                        </a>
+                    </div>
+                    <img src="{% static 'images/project.png' %}" alt="" class="project__img">
+                </div>
+            </div>
+
+        </section>
+
+    {% endblock %}

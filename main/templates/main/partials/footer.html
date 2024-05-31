@@ -1,0 +1,42 @@
+{% load static %}
+<!--==================== FOOTER ====================-->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div class="footer__name">
+                    <h1 class="footer__title">{{me.first_name|title}}</h1>
+                    <span class="footer__subtitle">{{me.userprofile.sub_title}}</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li>
+                        <a href="{% url 'main:service' %}" class="footer__link">Services</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main:portfolio' %}" class="footer__link">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'main:contact' %}" class="footer__link">Contactme</a>
+                    </li>
+
+                </ul>
+
+
+                <div class="footer__socials">
+                    <a href="https://www.facebook.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-instagram-alt"></i>
+                    </a>
+                    <a href="https://github.com/" target="_blank" class="footer__social">
+                        <i class="uil uil-github"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__copyright">
+                © {{me.userprofile.name}} nè {%  now "Y" %} . All rights reserved .
+
+            </div>
+
+    </footer>
